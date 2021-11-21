@@ -16,37 +16,43 @@ In the meantime, below is an example of what you can do with just a few lines of
 """
 
 
-""" Rock Paper Scissors
+""" Binary Search Algorithm 
 ----------------------------------------
 """
-import random
-import os
-import re
-os.system('cls' if os.name=='nt' else 'clear')
-while (1 < 2):
-    print "\n"
-    print "Rock, Paper, Scissors - Shoot!"
-    userChoice = raw_input("Choose your weapon [R]ock], [P]aper, or [S]cissors: ")
-    if not re.match("[SsRrPp]", userChoice):
-        print "Please choose a letter:"
-        print "[R]ock, [S]cissors or [P]aper."
-        continue
-    // Echo the user's choice
-    print "You chose: " + userChoice
-    choices = ['R', 'P', 'S']
-    opponenetChoice = random.choice(choices)
-    print "I chose: " + opponenetChoice
-    if opponenetChoice == str.upper(userChoice):
-        print "Tie! "
-    #if opponenetChoice == str("R") and str.upper(userChoice) == "P"
-    elif opponenetChoice == 'R' and userChoice.upper() == 'S':      
-        print "Scissors beats rock, I win! "
-        continue
-    elif opponenetChoice == 'S' and userChoice.upper() == 'P':      
-        print "Scissors beats paper! I win! "
-        continue
-    elif opponenetChoice == 'P' and userChoice.upper() == 'R':      
-        print "Paper beat rock, I win! "
-        continue
-    else:       
-        print "You win!"
+// iterative implementation of binary search in Python
+def binary_search(a_list, item):
+    """Performs iterative binary search to find the position of an integer in a given, sorted, list.
+    a_list -- sorted list of integers
+    item -- integer you are searching for the position of
+    """
+    first = 0
+    last = len(a_list) - 1
+    while first <= last:
+        i = (first + last) / 2
+        if a_list[i] == item:
+            return ' found at position '.format(item=item, i=i)
+        elif a_list[i] > item:
+            last = i - 1
+        elif a_list[i] < item:
+            first = i + 1
+        else:
+            return ' not found in the list'.format(item=item)
+// recursive implementation of binary search in Python
+def binary_search_recursive(a_list, item):
+    """Performs recursive binary search of an integer in a given, sorted, list.
+    a_list -- sorted list of integers
+    item -- integer you are searching for the position of
+    """
+    first = 0
+    last = len(a_list) - 1
+    if len(a_list) == 0:
+        return ' was not found in the list'.format(item=item)
+    else:
+        i = (first + last) // 2
+        if item == a_list[i]:
+            return ' found'.format(item=item)
+        else:
+            if a_list[i] < item:
+                return binary_search_recursive(a_list[i+1:], item)
+            else:
+                return binary_search_recursive(a_list[:i], item)

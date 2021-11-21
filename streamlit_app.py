@@ -16,16 +16,7 @@ In the meantime, below is an example of what you can do with just a few lines of
 """
 
 
-""" Binary Search Algorithm 
-----------------------------------------
-"""
-// iterative implementation of binary search in Python
-def binary_search(a_list, item):
-    """Performs iterative binary search to find the position of an integer in a given, sorted, list.
-    a_list -- sorted list of integers
-    item -- integer you are searching for the position of
-    """
-    first = 0
+ first = 0
     last = len(a_list) - 1
     while first <= last:
         i = (first + last) / 2

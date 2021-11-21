@@ -1,38 +1,13 @@
-from collections import namedtuple
-import altair as alt
-import math
-import pandas as pd
-import streamlit as st
-
-
- first = 0
-    last = len(a_list) - 1
-    while first <= last:
-        i = (first + last) / 2
-        if a_list[i] == item:
-            return ' found at position '.format(item=item, i=i)
-        elif a_list[i] > item:
-            last = i - 1
-        elif a_list[i] < item:
-            first = i + 1
-        else:
-            return ' not found in the list'.format(item=item)
-// recursive implementation of binary search in Python
-def binary_search_recursive(a_list, item):
-    """Performs recursive binary search of an integer in a given, sorted, list.
-    a_list -- sorted list of integers
-    item -- integer you are searching for the position of
-    """
-    first = 0
-    last = len(a_list) - 1
-    if len(a_list) == 0:
-        return ' was not found in the list'.format(item=item)
-    else:
-        i = (first + last) // 2
-        if item == a_list[i]:
-            return ' found'.format(item=item)
-        else:
-            if a_list[i] < item:
-                return binary_search_recursive(a_list[i+1:], item)
-            else:
-                return binary_search_recursive(a_list[:i], item)
+ def Fibonacci(n):
+ if n<0:
+  print("Incorrect input")
+ # First Fibonacci number is 0
+ elif n==1:
+  return 0
+ # Second Fibonacci number is 1
+ elif n==2:
+  return 1
+ else:
+  return Fibonacci(n-1)+Fibonacci(n-2)
+# Driver Program
+print(Fibonacci(10)) 
